@@ -15,11 +15,9 @@ export class EmployeeDetailComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    debugger
   }
 
   ngOnInit(): void {
-    debugger
     console.log(this.employeeDetail.value);
   }
 

@@ -20,14 +20,12 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
   }
 
   ngAfterViewInit(): void {
-    debugger;
     console.log(this.appChild1);
-    //this.appChild1.newVariable = 'test update after view init';
+    // this.appChild1.newVariable = 'test update after view init';
     console.log(this.appChild);
   }
 
   ngAfterViewChecked(): void {
-    debugger
   }
 
   onChange(event): void {
@@ -35,7 +33,6 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked {
   }
 
   onEmitted(event): void {
-    debugger
     this.emittedValue = event;
   }
 }

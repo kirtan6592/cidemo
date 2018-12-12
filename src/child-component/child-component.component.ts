@@ -16,7 +16,6 @@ export class ChildComponentComponent implements OnInit, OnChanges, OnDestroy {
   public subscription: Subscription;
 
   ngOnChanges(changes: SimpleChanges) {
-    debugger
     console.log(changes);
   }
 
@@ -25,8 +24,8 @@ export class ChildComponentComponent implements OnInit, OnChanges, OnDestroy {
     const squareValues = map((val: number) => val * val);
     const squaredNums = squareValues(nums);
 
-    this.subscription = squaredNums.subscribe(x => { console.log(x) },
-      (error) => { console.error(error) });
+    this.subscription = squaredNums.subscribe(x => { console.log(x); },
+      (error) => { console.error(error); });
   }
 
   ngOnInit() {

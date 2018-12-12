@@ -28,7 +28,6 @@ export class ChildComponent2Component implements OnInit {
   private getEmployeeList(): void {
     this.progressBar = true;
     this.chilComponent2Service.getEmployees().subscribe(response => {
-      debugger;
       this.personDetails = response;
       this.progressBar = false;
     }, error => { console.log(error); this.errorMessage = error.message.toString(); });
@@ -55,7 +54,6 @@ export class ChildComponent2Component implements OnInit {
   public onCreate(): void {
     this.progressBar = true;
     this.chilComponent2Service.saveEmployee(this.formGroup.value).subscribe(response => {
-      debugger
       alert('Record created successfully..!!');
       this.formGroup.reset();
       this.getEmployeeList();
@@ -67,7 +65,6 @@ export class ChildComponent2Component implements OnInit {
     this.isEdit = true;
     this.progressBar = true;
     this.chilComponent2Service.getEmployee(id).subscribe(response => {
-      debugger
       // this.formGroup.setValue(response);
       this.formGroup.patchValue({
         id: response.id,
@@ -86,7 +83,6 @@ export class ChildComponent2Component implements OnInit {
     if (result) {
       this.progressBar = true;
       this.chilComponent2Service.deleteEmployee(id).subscribe(response => {
-        debugger
         alert('Record deleted successfully..!!');
         this.getEmployeeList();
         this.progressBar = false;
@@ -97,7 +93,6 @@ export class ChildComponent2Component implements OnInit {
   public onUpdate(): void {
     this.progressBar = true;
     this.chilComponent2Service.updateEmployee(this.formGroup.value).subscribe(response => {
-      debugger
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Record updated successfully..!!' });
       this.isEdit = false;
       this.formGroup.reset();
