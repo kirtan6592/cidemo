@@ -10,12 +10,20 @@ jobs:
             - run:
                 name: Install local dependencies
                 command: npm install
+            # ng serve the source code
+            - run:
+                name: Ng Serve
+                command: ng serve
+            # ng build the source code
+            - run:
+                name: Ng Build
+                command: ng build
             # Lint the source code
             - run:
                 name: Linting
-                command: npm run lint
+                command: ng lint
             # Test the source code
             - run:
                 name: Testing
-                command: npm run test
+                command: ng test
 - dist
