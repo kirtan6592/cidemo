@@ -1,0 +1,10 @@
+<fieldset>
+  <legend>This is Child Component</legend>
+  <p>
+    And This is comming from Parent: <b>{{firstName}}</b>
+  </p>
+  <p>
+    Emit Value:<input type="text" [(ngModel)]="emitValue" /><br>
+    <button type="button" (click)="onEmit()">Emit</button>
+  </p>
+</fieldset>

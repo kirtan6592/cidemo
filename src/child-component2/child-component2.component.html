@@ -1,0 +1,106 @@
+<p-toast></p-toast>
+<p style="background-color:red" *ngIf="errorMessage !== undefined">{{errorMessage}}</p>
+<!-- <p-progressSpinner *ngIf="progressBar"></p-progressSpinner> -->
+<fieldset>
+  <legend>Perform CRUD Opertaion Here...</legend>
+  <div>
+    <form [formGroup]="formGroup">
+      <table>
+        <tr>
+          <td>First Name</td>
+          <td><input type="text" name="fName" formControlName="firstName">
+          </td>
+        </tr>
+        <tr>
+          <td>Last name</td>
+          <td><input type="text" name="lName" formControlName="lastName">
+          </td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><input type="text" name="email" formControlName="email">
+          </td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td><input type="text" name="address" formControlName="address">
+          </td>
+        </tr>
+        <tr>
+          <td>Mobile</td>
+          <td><input type="text" name="mobile" formControlName="mobile" maxlength="10">
+          </td>
+        </tr>
+        <tr formArrayName="hobby" *ngFor="let item of formArrayData.controls; let i = index;">
+          <td>Skills</td>
+          <div [formGroupName]="i">
+            <td><input type="text" name="hobbyname" formControlName="hobbyName"><button type="button" (click)="addMore()">Add
+                Skill</button><button *ngIf="i >= 1" (click)="removeHobby(i)">Remove
+              </button>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="button" (click)="onCreate()" *ngIf="!isEdit" [disabled]="validForm()">CREATE</button>
+            <button type="button" (click)="onUpdate()" *ngIf="isEdit" [disabled]="validForm()">UPDATE</button>
+            <button type="button" (click)="onCancel()" *ngIf="isEdit">Cancel</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <h3>Details</h3>
+  <!-- <table>
+    <tr>
+      <th> Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Mobile</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let i of personDetails">
+      <td>{{i.id}}</td>
+      <td>{{i.firstName}}</td>
+      <td>{{i.lastName}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.address}}</td>
+      <td>{{i.mobile}}</td>
+      <td><button type="button" (click)="onEdit(i.id)">Edit</button> </td>
+      <td><button type="button" (click)="onDelete(i.id)">Delete</button></td>
+    </tr>
+  </table> -->
+  <p-table [value]="personDetails" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+      <tr>
+        <th> Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-i>
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.firstName}}</td>
+        <td>{{i.lastName}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.address}}</td>
+        <td>{{i.mobile}}</td>
+        <td><button type="button" (click)="onEdit(i.id)">Edit</button> </td>
+        <td><button type="button" (click)="onDelete(i.id)">Delete</button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</fieldset>
+
+<div>
+  <app-employee-detail [employeeDetail]="formGroup"></app-employee-detail>
+</div>
