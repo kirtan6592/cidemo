@@ -13,11 +13,11 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "package.json" }}
       - run: # run tests
           name: serve
-          command: ng serve
+          command: npm run serve
       - run: # run tests
           name: build
-          command: ng build
+          command: npm run build
       - run: # run tests
           name: test
-          command: ng test
+          command: npm run test
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
