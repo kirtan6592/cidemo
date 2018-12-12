@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChildComponent1Component implements OnInit {
 
-  public newVariable: string = 'Test';
+  public newVariable = 'Test';
   constructor() { }
 
   ngOnInit() {
