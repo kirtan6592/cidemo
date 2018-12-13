@@ -11,11 +11,10 @@ import { retry } from 'rxjs/operators';
 export class ChilComponent2Service {
 
   private url = 'http://localhost:57563/api/home';
-  private http: HttpClient;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   public getEmployees(): Observable<EmployeeViewModel[]> {
-    return this.http.get<EmployeeViewModel[]>(this.url).pipe(retry(5));
+    return this.http.get<EmployeeViewModel[]>(`${this.url}`).pipe(retry(5));
   }
 
   public getEmployee(id: number): Observable<EmployeeViewModel> {
