@@ -18,7 +18,10 @@ jobs: # a collection of steps
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: # run tests
+      - run: # run build
           name: build
           command: npm run build
+      - run: # run lint
+          name: build
+          command: npm run lint
       # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples

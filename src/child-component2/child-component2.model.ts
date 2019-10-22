@@ -7,5 +7,10 @@ export class EmployeeViewModel {
     mobile: number;
 }
 
+export class PassportDetailModel {
+    Email: string;
+    isTenantOrGaurantor: string;
+}
+
 
 

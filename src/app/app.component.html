@@ -1,6 +1,6 @@
 <fieldset>
   <legend i18n>This is Parent.</legend>
-  Send Data to Child Component:<input type="text" (keyup)="onChange($event)" /><br><br>
+  Send Data to Child Component:<input type="text" (keyup)="onChange($event)" appCustome /><br><br>
   {{welcomeString}}<b>{{emittedValue}}</b>
 </fieldset>
 <app-child-component [firstName]="firstName" (emittedValue)="onEmitted($event)" #appChild></app-child-component>
@@ -8,3 +8,23 @@
 <app-child-component1></app-child-component1>
 <app-child-component1></app-child-component1>
 <app-child-component2></app-child-component2>
+
+
+
+<aw-wizard navBarLayout="large-filled-symbols">
+  <aw-wizard-step [navigationSymbol]="{ symbol: '1' }">
+    Content of Step 1
+    <button type="button" awNextStep>Next Step</button>
+  </aw-wizard-step>
+  <aw-wizard-step [navigationSymbol]="{ symbol: '2' }">
+    Content of Step 2
+    <button type="button" awPreviousStep>Go to previous step</button>
+    <button type="button" awNextStep>Go to next step</button>
+  </aw-wizard-step>
+  <aw-wizard-step [navigationSymbol]="{ symbol: '3' }">
+    Content of Step 3
+    <button type="button" awPreviousStep>Previous Step</button>
+    <button type="button">Finish</button>
+  </aw-wizard-step>
+</aw-wizard>
+

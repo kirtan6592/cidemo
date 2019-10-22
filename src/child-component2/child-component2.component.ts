@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChilComponent2Service } from './chil-component2.service';
-import { EmployeeViewModel } from './child-component2.model';
+import { EmployeeViewModel, PassportDetailModel } from './child-component2.model';
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
 import { MessageService } from 'primeng/components/common/messageservice';
 
@@ -23,14 +23,23 @@ export class ChildComponent2Component implements OnInit {
   public ngOnInit(): void {
     this.createFormGroup();
     this.getEmployeeList();
+
   }
 
   private getEmployeeList(): void {
     this.progressBar = true;
-    this.chilComponent2Service.getEmployees().subscribe(response => {
-      this.personDetails = response;
-      this.progressBar = false;
-    }, error => { console.log(error); this.errorMessage = error.message.toString(); });
+    const passportDetailModel = new PassportDetailModel();
+    passportDetailModel.Email = 'test';
+    passportDetailModel.isTenantOrGaurantor = '1';
+    debugger
+    // tslint:disable-next-line:max-line-length
+    this.chilComponent2Service.test(passportDetailModel, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJUZW5hbnRHdWlkIjoiV2I4SndmUzZZZjV3VG9xZS9iRVlaMnhsYlFpWEdrNHJNYzFnQ1ZKUldFRXdLRFFTclZTOUJ3PT0iLCJJc1N1Ym1pdHRlZCI6IjEiLCJJc1ByaXZhY3lQb2xpY3lBY2NlcHRlZCI6IjAiLCJuYmYiOjE1NDY0MTUyNDksImV4cCI6MTU0NzAyMDA0OSwiaWF0IjoxNTQ2NDE1MjQ5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMTkxIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo1MDE5MSJ9.jwjmipo7Bh6btwEAVqEV3Le5b__6qaEXvZYplKRL2OA').subscribe(re => {
+      debugger
+    });
+    // this.chilComponent2Service.getEmployees().subscribe(response => {
+    //   this.personDetails = response;
+    //   this.progressBar = false;
+    // }, error => { console.log(error); this.errorMessage = error.message.toString(); });
   }
 
   private createFormGroup(): void {

@@ -33,4 +33,21 @@ export class ChilComponent2Service {
   public deleteEmployee(id: number): Observable<null> {
     return this.http.delete<null>(`${this.url}/` + id).pipe(retry(5));
   }
+
+  public test(passportDetailModel: any, token: string): Observable<any> {
+    debugger
+    const header = new HttpHeaders().append('Authorization', token);
+    return this.http.post<any>
+      ('http://localhost:61326/api/NewReference/AddPassportTenant', passportDetailModel, { headers: header });
+  }
+
+  getHeader(token: string) {
+    debugger
+    console.log(token);
+    const headers = new HttpHeaders({
+      'Authorization': token,
+      'Content-Type': 'application/json'
+    });
+    return headers;
+  }
 }
