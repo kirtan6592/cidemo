@@ -32,7 +32,7 @@
     "primeng": "^6.1.5",
     "primeng-extensions-wizard": "^2.2.0",
     "rxjs": "^6.2.2",
-    "yarn": "^1.10.1",
+    "yarn": "^1.22.0",
     "yarn-install": "^1.0.0",
     "zone.js": "~0.8.26"
   },
